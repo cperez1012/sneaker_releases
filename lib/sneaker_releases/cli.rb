@@ -10,7 +10,7 @@ class SneakerReleases::CLI
   
   
   def get_sneakers
-    @sneakers = ["Nike Air Force 1 Low What The NYC", "Patta x Air Jordan 7 Icicle", "Puma Clyde Hardwood White Black", "BlackEyePatch x Reebok Daytona DMX II", "Nike Little Posite One Wolf Grey Graffiti", "Air Jordan 10 Seattle", "adidas Harden Vol 4 Collegiate Royal", "adidas Harden Vol 4 Scarlet", "adidas Harden Vol 4 Grey", "adidas Harden Vol 4 Core Black", "adidas Harden Vol 4 Glow Green", "Air Jordan 1 Retro High OG WMNS Fearless"]
+    @sneakers = SneakerReleases::Sneakers.all
   end
   
   def list_sneakers
@@ -24,7 +24,6 @@ class SneakerReleases::CLI
   def get_user_choice
     choice = gets.strip.to_i
     show_sneakers(choice) if valid_input(choice, @sneakers) 
-    end
   end
 
   def valid_input(input, data)
@@ -37,6 +36,6 @@ class SneakerReleases::CLI
     # SneakerReleases::Sneakers.all.each.with_index(1) do |release|
     #   puts release.name
     #   get_release_date
-    end
-  end
+    #end
+  end  
 end
