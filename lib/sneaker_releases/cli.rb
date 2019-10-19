@@ -22,12 +22,12 @@ class SneakerReleases::CLI
   end
   
   def get_user_choice
-    choice.to_i <= gets.strip
-    if valid_input(choice.to_i, @sneakers)
+    choice <= gets.strip
+    if valid_input(choice, @sneakers)
     end
   end
 
   def valid_input(input, data)
-    input <= data.length && input > 0
+    input.to_i <= data.length && input.to_i > 0
   end
 end
