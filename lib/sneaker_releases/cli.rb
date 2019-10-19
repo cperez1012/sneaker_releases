@@ -1,6 +1,6 @@
 class SneakerReleases::CLI 
   
   def call
-    "Welcome to the Sneaker Release page!"
+   puts "Welcome to the Sneaker Release page!"
   end
 end

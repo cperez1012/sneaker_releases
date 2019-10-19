@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative ./lib/sneaker_releases
+require_relative '../lib/sneaker_releases'
 
 SneakerReleases::CLI.new.call
