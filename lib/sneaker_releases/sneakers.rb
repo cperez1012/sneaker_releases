@@ -1,0 +1,4 @@
+class SneakerReleases::Sneaker
+  
+  
+end
