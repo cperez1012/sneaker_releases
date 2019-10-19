@@ -1,9 +1,11 @@
 class SneakerReleases::CLI 
   
   def call
-    puts "Welcome to the Sneaker Release page!"
+    puts "\nWelcome to the Sneaker Release page!\n"
+    puts ""
     get_sneakers
     list_sneakers
+    get_user_choice
   end
   
   
@@ -12,8 +14,20 @@ class SneakerReleases::CLI
   end
   
   def list_sneakers
+    puts "Choose a sneaker to view the release date."
+    puts ""
     @sneakers.each.with_index do |sneaker, index|
       puts "#{index + 1}. #{sneaker}"
     end
+  end
+  
+  def get_user_choice
+    choice.to_i <= gets.strip
+    if valid_input(choice.to_i, @sneakers)
+    end
+  end
+
+  def valid_input(input, data)
+    input <= data.length && input > 0
   end
 end
