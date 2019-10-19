@@ -10,6 +10,7 @@ class SneakerReleases::CLI
   
   
   def get_sneakers
+    SneakerReleases::Scraper.scrape_sneakers
     @sneakers = SneakerReleases::Sneakers.all
   end
   

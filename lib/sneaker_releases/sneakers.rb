@@ -8,6 +8,7 @@ class SneakerReleases::Sneakers
   end
   
   def self.all
+    SneakerReleases::Scraper.scrape_sneakers if @@all.empty?
     @@all 
   end
   
