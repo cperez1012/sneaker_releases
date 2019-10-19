@@ -17,7 +17,7 @@ class SneakerReleases::CLI
     puts "Choose a sneaker to view the release date."
     puts ""
     @sneakers.each.with_index do |sneaker, index|
-      puts "#{index + 1}. #{sneaker}"
+      puts "#{index + 1}. #{sneaker.name}"
     end
   end
   
@@ -32,7 +32,7 @@ class SneakerReleases::CLI
   
   def show_sneakers(choice)
     sneaker = @sneakers[choice - 1]
-    puts "Here are the release dates for #{sneaker}:"
+    puts "Here is the release dates for #{sneaker}:"
     # SneakerReleases::Sneakers.all.each.with_index(1) do |release|
     #   puts release.name
     #   get_release_date
