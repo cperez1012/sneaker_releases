@@ -22,12 +22,21 @@ class SneakerReleases::CLI
   end
   
   def get_user_choice
-    choice <= gets.strip
-    if valid_input(choice, @sneakers)
+    choice = gets.strip.to_i
+    show_sneakers(choice) if valid_input(choice, @sneakers) 
     end
   end
 
   def valid_input(input, data)
     input.to_i <= data.length && input.to_i > 0
+  end
+  
+  def show_sneakers(choice)
+    sneaker = @sneakers[choice - 1]
+    puts "Here are the release dates for #{sneaker}:"
+    # SneakerReleases::Sneakers.all.each.with_index(1) do |release|
+    #   puts release.name
+    #   get_release_date
+    end
   end
 end
