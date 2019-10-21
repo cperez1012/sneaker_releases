@@ -3,8 +3,13 @@ class SneakerReleases::CLI
   def call
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
+    sleep (1)
     get_sneakers
     list_sneakers
+    get_user_choice
+    puts ""
+    see_more
+    puts ""
     get_user_choice
     puts "Type 'close' to exit the page"
     close_page
@@ -35,10 +40,18 @@ class SneakerReleases::CLI
   
   def show_sneakers(choice)
     sneaker = @sneakers[choice - 1]
-    puts "Here is the release dates for #{sneaker.name}: #{sneaker.release_date}"
-    puts "Choose another sneaker"
+    puts "Here is the release date for #{sneaker.name}: #{sneaker.release_date}"
   end
   
+  def see_more
+    sleep (5)
+    puts "Choose another sneaker"
+    puts ""
+    @sneakers.each.with_index(1) do |sneaker, index|
+      puts "#{index}. #{sneaker.name}"
+    end
+  end
+
   private
   def close_page
     puts "Exiting the application..."

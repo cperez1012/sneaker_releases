@@ -2,7 +2,6 @@ require_relative "./sneaker_releases/version"
 require_relative "./sneaker_releases/cli"
 require_relative "./sneaker_releases/scraper"
 require_relative "./sneaker_releases/sneakers"
-require_relative "./sneaker_releases/release_dates"
 
 require 'pry'
 require 'nokogiri'

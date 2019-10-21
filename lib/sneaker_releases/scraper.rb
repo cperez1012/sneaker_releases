@@ -6,8 +6,9 @@ class SneakerReleases::Scraper
     sneakers = doc.css("article")
       sneakers.each do |s|
       brand = s.css("h2.masonry__item-title-brand").text
+      space = "-"
       shoe = s.css("h4.masonry__item-title").text
-      name = brand + shoe
+      name = brand + space + shoe
       release_date = s.css("p.masonry__item-release-date").text.strip
       SneakerReleases::Sneakers.new(name, release_date)
       # binding.pry
