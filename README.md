@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Please type in the number on the sneaker list correlating to the sneaker you would like to see the release date for. Once you view the release date for your first sneaker, you can choose another sneaker from the list. 
 
 ## Development
 

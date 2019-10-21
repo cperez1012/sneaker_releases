@@ -64,9 +64,9 @@ class SneakerReleases::CLI
     puts ""
     see_more
     puts "Exiting the application..."
-    sleep (1)
+    sleep (2)
     puts "Thank you"
-    sleep (1)
+    sleep (2)
     exit
   end
 end
