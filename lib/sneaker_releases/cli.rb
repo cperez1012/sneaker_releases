@@ -33,11 +33,12 @@ class SneakerReleases::CLI
   
   def show_sneakers(choice)
     sneaker = @sneakers[choice - 1]
-    release_date = sneaker.release_date
+    # SneakerReleases::Scraper.new("October 12, 2019", sneaker)
+    # release_date = sneaker.release_date
+    sneaker.get_release_date
     puts "Here is the release dates for #{sneaker.name}:"
-    # SneakerReleases::Sneakers.all.each.with_index(1) do |release|
-    #   puts release.name
-    #   get_release_date
-    #end
+    sneaker.release_date.each_with_index(1) do |release, index|
+      puts "#{index}. #{release_date.name}"
+    end
   end  
 end

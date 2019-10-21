@@ -1,11 +1,12 @@
-class SneakerReleases::Sneakers
-  attr_accessor :name, :release_date
+class SneakerReleases::ReleaseDates
+  attr_accessor :name, :sneaker, :key_info
   
   @@all = []
   
   def initialize(name)
     @name = name
-    @release_date = []
+    @sneaker = sneaker
+    add_to_sneaker
     save
   end
   
@@ -13,9 +14,14 @@ class SneakerReleases::Sneakers
     SneakerReleases::Scraper.scrape_sneakers if @@all.empty?
     @@all 
   end
-
-  def get_release_date
+  
+  def release_date
     SneakerReleases::Scraper.scrape_release_date(self) if @release_date.empty?
+    @release_date
+  end
+  
+  def add_to_sneaker
+    @sneaker.release_date << self unless @sneaker.release_date.include?(self)
   end
   
   def save
