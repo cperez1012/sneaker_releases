@@ -15,7 +15,7 @@ class SneakerReleases::Sneakers
   end
 
   def get_release_date
-    SneakerReleases::Scraper.scrape_release_date(self) if @release_date.empty?
+    SneakerReleases::Scraper.scrape_release_dates(self) if @release_date.empty?
   end
   
   def save

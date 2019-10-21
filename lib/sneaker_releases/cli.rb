@@ -6,6 +6,8 @@ class SneakerReleases::CLI
     get_sneakers
     list_sneakers
     get_user_choice
+    puts "Type 'close' to exit the page"
+    close_page
   end
   
   
@@ -33,12 +35,19 @@ class SneakerReleases::CLI
   
   def show_sneakers(choice)
     sneaker = @sneakers[choice - 1]
-    # SneakerReleases::Scraper.new("October 12, 2019", sneaker)
-    # release_date = sneaker.release_date
     sneaker.get_release_date
     puts "Here is the release dates for #{sneaker.name}:"
     sneaker.release_date.each_with_index(1) do |release, index|
       puts "#{index}. #{release_date.name}"
     end
-  end  
+  end
+  
+  private
+  def close_page
+    puts "Exiting the application..."
+    sleep (1)
+    puts "Thank you"
+    sleep (1)
+    exit
+  end
 end
