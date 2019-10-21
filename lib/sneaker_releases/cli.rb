@@ -8,10 +8,17 @@ class SneakerReleases::CLI
     list_sneakers
     get_user_choice
     puts ""
+    puts "Type 'close' to exit the page"
+    sleep (3)
     see_more
     puts ""
+    sleep (3)
     get_user_choice
     puts "Type 'close' to exit the page"
+    puts ""
+    sleep (3)
+    list_sneakers
+    get_user_choice
     close_page
   end
   
@@ -54,6 +61,8 @@ class SneakerReleases::CLI
 
   private
   def close_page
+    puts ""
+    see_more
     puts "Exiting the application..."
     sleep (1)
     puts "Thank you"
