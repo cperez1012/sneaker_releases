@@ -11,7 +11,13 @@ class SneakerReleases::Scraper
   end
   
   def self.scrape_release_dates
+    doc = Nokogiri::HTML(open("https://www.kicksonfire.com/app/"))
     
+    release_date = doc.css("div.release-date-text-wrapper")
+    release_date.each do |r|
+      name = r.css("div")[1].text.strip
+      SneakerReleases::ReleaseDates.new(name)
+    end
   end
 
 end
