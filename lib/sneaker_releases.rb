@@ -4,7 +4,7 @@ require_relative "./sneaker_releases/scraper"
 require_relative "./sneaker_releases/sneakers"
 require_relative "./sneaker_releases/release_dates"
 
-# require 'pry'
+require 'pry'
 require 'nokogiri'
 require 'open-uri'
 

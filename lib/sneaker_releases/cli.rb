@@ -4,6 +4,7 @@ class SneakerReleases::CLI
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
     get_sneakers
+   
     list_sneakers
     get_user_choice
     puts "Type 'close' to exit the page"

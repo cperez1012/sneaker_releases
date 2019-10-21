@@ -3,19 +3,15 @@ class SneakerReleases::Sneakers
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, release_date)
     @name = name
-    @release_date = []
+    @release_date = release_date
     save
   end
   
   def self.all
     SneakerReleases::Scraper.scrape_sneakers if @@all.empty?
     @@all 
-  end
-
-  def get_release_date
-    SneakerReleases::Scraper.scrape_release_dates(self) if @release_date.empty?
   end
   
   def save
