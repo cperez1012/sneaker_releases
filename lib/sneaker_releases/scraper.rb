@@ -1,14 +1,16 @@
 class SneakerReleases::Scraper
   
   def self.scrape_sneakers
-    doc = Nokogiri::HTML(open("https://www.kicksonfire.com/app/"))
-    binding.pry
-    sneakers = doc.css("div.release-date-text-wrapper")
+    doc = Nokogiri::HTML(open("https://releases.kicksusa.com/"))
+    
+    sneakers = doc.css("article")
       sneakers.each do |s|
-      name = s.css("div.release-date-title").text.strip
-      release_date = s.css("div")[1].text.strip
+      brand = s.css("h2.masonry__item-title-brand").text
+      shoe = s.css("h4.masonry__item-title").text
+      name = brand + shoe
+      release_date = s.css("p.masonry__item-release-date").text.strip
       SneakerReleases::Sneakers.new(name, release_date)
-       
+      # binding.pry
     end
   end
 

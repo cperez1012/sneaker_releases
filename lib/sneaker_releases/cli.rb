@@ -4,7 +4,6 @@ class SneakerReleases::CLI
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
     get_sneakers
-   
     list_sneakers
     get_user_choice
     puts "Type 'close' to exit the page"
@@ -36,11 +35,8 @@ class SneakerReleases::CLI
   
   def show_sneakers(choice)
     sneaker = @sneakers[choice - 1]
-    sneaker.get_release_date
-    puts "Here is the release dates for #{sneaker.name}:"
-    sneaker.release_date.each_with_index(1) do |release, index|
-      puts "#{index}. #{release_date.name}"
-    end
+    puts "Here is the release dates for #{sneaker.name}: #{sneaker.release_date}"
+    puts "Choose another sneaker"
   end
   
   private
