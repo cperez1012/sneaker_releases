@@ -1,52 +1,28 @@
 class SneakerReleases::CLI
 
   def call
+    input = ""
+    while input != "exit"
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
     sleep (1)
-    # get_sneakers
-    # list_sneakers
-    # puts "Type in the number correlating to sneaker you would like to view the release date for"
-    # get_user_choice
-    # puts ""
-    # puts "Type 'close' to exit the page"
-
-    # sleep (3)
-    # see_more
-    # puts ""
-    # sleep (3)
-    # get_user_choice
-    # puts "Type 'close' to exit the page"
-    # puts ""
-    # sleep (3)
-    # list_sneakers
-    # get_user_choice
-  # if get_user_choice == "close"
-  #   close_page
-  # else
-  # answer = ""
-    while choice = rand(1..20) do
-    sleep (1)
-      get_sneakers
+    get_sneakers
+    loop do list_sneakers
       puts "Type in the number correlating to sneaker you would like to view the release date for"
-    sleep (1)
-      puts ""
-      puts "Type 'close' to exit the page"
-    sleep (1)
-      options
-      input = gets.strip.downcase
       sleep (1)
-      break
+      puts ""
+      puts "Press CTRL - C or Type 'exit' to exit the page"
+      puts "Press enter to refresh page"
+      sleep (1)
+      get_user_choice
+      input = gets.strip.downcase
       case input
-      when "close"
+      when get_user_choice
+        call
         close_page
+        end
       end
     end
-  end
-
-  def options
-    list_sneakers
-    get_user_choice
   end
 
   def get_sneakers
@@ -58,7 +34,7 @@ class SneakerReleases::CLI
     puts "Choose a sneaker to view the release date."
     puts ""
     @sneakers.each.with_index(1) do |sneaker, index|
-      puts "#{index}. #{sneaker.name}"
+      puts "#{index}. #{sneaker.name}."
     end
   end
 
@@ -76,19 +52,9 @@ class SneakerReleases::CLI
     puts "Here is the release date for #{sneaker.name}: #{sneaker.release_date}"
   end
 
-  # def see_more
-  #   sleep (5)
-  #   puts "Choose another sneaker"
-  #   puts ""
-  #   @sneakers.each.with_index(1) do |sneaker, index|
-  #     puts "#{index}. #{sneaker.name}"
-  #   end
-  # end
-
   private
   def close_page
     puts ""
-    # see_more
     puts "Exiting the application..."
     sleep (2)
     puts "Thank you"
