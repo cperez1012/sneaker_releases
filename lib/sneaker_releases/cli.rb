@@ -1,27 +1,43 @@
 class SneakerReleases::CLI
 
   def call
-    input = ""
-    while input != "exit"
+    # input = ""
+    # while input != "exit"
+    puts ""
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
     sleep (1)
     get_sneakers
-    loop do list_sneakers
-      puts "Type in the number correlating to sneaker you would like to view the release date for"
-      sleep (1)
-      puts ""
-      puts "Press CTRL - C or Type 'exit' to exit the page"
-      puts "Press enter to refresh page"
-      sleep (1)
-      get_user_choice
-      input = gets.strip.downcase
-      case input
-      when get_user_choice
-        call
-        close_page
-        end
-      end
+    # loop do list_sneakers
+      # puts "Type in the number correlating to sneaker you would like to view the release date for"
+      # sleep (1)
+      # puts ""
+      # puts "Press CTRL - C or Type 'exit' to exit the page"
+      # puts "Press enter to refresh page"
+      # sleep (1)
+      # get_user_choice
+      # input = gets.strip.downcase
+      # case input
+      # when get_user_choice
+      #   call
+      #   close_page
+      #   end
+      # end
+    menu
+  end
+
+  def menu
+    puts "Type in the number correlating to sneaker you would like to view the release date for"
+    list_sneakers
+    get_user_choice
+    puts "Would you like to learn more about other sneakers? Enter (y) to see menu or (n) to exit"
+    input = gets.strip.downcase
+    if input == "y"
+      menu
+    elsif input == "n"
+      close_page
+    else
+      close_page
     end
   end
 
