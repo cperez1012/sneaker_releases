@@ -1,28 +1,12 @@
 class SneakerReleases::CLI
 
   def call
-    # input = ""
-    # while input != "exit"
     puts ""
     puts "\nWelcome to the Sneaker Release page!\n"
     puts ""
     sleep (1)
     get_sneakers
-    # loop do list_sneakers
-      # puts "Type in the number correlating to sneaker you would like to view the release date for"
-      # sleep (1)
-      # puts ""
-      # puts "Press CTRL - C or Type 'exit' to exit the page"
-      # puts "Press enter to refresh page"
-      # sleep (1)
-      # get_user_choice
-      # input = gets.strip.downcase
-      # case input
-      # when get_user_choice
-      #   call
-      #   close_page
-      #   end
-      # end
+
     menu
   end
 
@@ -36,6 +20,8 @@ class SneakerReleases::CLI
       menu
     elsif input == "n"
       close_page
+    # elsif input != ""
+
     else
       close_page
     end
@@ -57,6 +43,11 @@ class SneakerReleases::CLI
   def get_user_choice
     choice = gets.strip.to_i
     show_sneakers(choice) if valid_input(choice, @sneakers)
+    if valid_input(choice, @sneakers) == false
+      puts "Please try again"
+      list_sneakers
+      get_user_choice
+    end
   end
 
   def valid_input(input, data)
